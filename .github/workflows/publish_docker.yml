@@ -78,5 +78,5 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Publish to Docker Hub
-        if: ${{steps.login-hub.outcome == 'success'}}
-        run: ./mvnw -ntp verify -DskipTests -Pprod jib:build -Dimage=${{ steps.meta.outputs.tags }}
+        # if: ${{steps.login-hub.outcome == 'success'}}
+        run: echo ./mvnw -ntp verify -DskipTests -Pprod jib:build -Dimage=jhipster/jhipster-registry -Djib.to.tags='${{ steps.meta.outputs.version }},latest'
