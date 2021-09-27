@@ -67,7 +67,7 @@ jobs:
         with:
           images: jhipster/jhipster-registry
           tags: |
-            type=pep440,pattern={{version}}
+            type=semver,pattern=v{{version}}
       - name: Login to Docker Registry
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
